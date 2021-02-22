@@ -24,15 +24,18 @@ public class Driver {
 			for(int i = 0; i<array.size(); i++)
 			{
 				JSONObject cardData = (JSONObject)array.get(i);
-				if(cardData.countainsKey("type") && cardData.containsKey("MINION"))
-				{
-					String tmp_name = cardData.get("name");
-					String tmp_cost = (String)cardData.get("cost");
-					String tmp_attack = (String)cardData.get("attack");
-					String tmp_health = (String)cardData.get("health");
+				if(cardData.containsKey("cost") && cardData.containsKey("name"))
+		    		{
+				
+					if(cardData.countainsKey("type") && cardData.containsKey("MINION"))
+					{
+						String tmp_name = cardData.get("name");
+						String tmp_cost = (String)cardData.get("cost");
+						String tmp_attack = (String)cardData.get("attack");
+						String tmp_health = (String)cardData.get("health");
 					
-					HearthstoneCard_String objt = new HearthstoneCard_String(tmp_name, tmp_cost, tmp_attack, tmp_health);
-					Cards.add(objt);
+						HearthstoneCard_String objt = new HearthstoneCard_String(tmp_name, tmp_cost, tmp_attack, tmp_health);
+					}	Cards.add(objt);
 					
 				}
 			}
